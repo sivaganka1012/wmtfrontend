@@ -41,9 +41,14 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({
+        const payload = {
       ...formData,
       price: Number(formData.price),
     });
+      manufactureDate: formData.manufactureDate || undefined,
+    };
+
+    onSubmit(payload);
   };
 
   return (
@@ -76,6 +81,14 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
 
       <label>Image URL</label>
       <input name="imageUrl" value={formData.imageUrl} onChange={handleChange} />
+      
+      <label>Manufacture Date</label>
+      <input
+        type="date"
+        name="manufactureDate"
+        value={formData.manufactureDate}
+        onChange={handleChange}
+      />
 
       <button className="btn primary" type="submit">{submitText}</button>
     </form>
