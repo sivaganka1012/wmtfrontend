@@ -18,6 +18,19 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
       description: "",
       imageUrl: "",
     }
+       initialValues
+      ? {
+          ...initialValues,
+          manufactureDate: toDateInputValue(initialValues.manufactureDate),
+        }
+      : {
+          name: "",
+          category: "",
+          price: "",
+          description: "",
+          imageUrl: "",
+          manufactureDate: "",
+        }
   );
 
   const handleChange = (e) => {
