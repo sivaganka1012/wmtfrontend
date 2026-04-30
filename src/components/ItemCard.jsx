@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
 function ItemCard({ item, onDelete }) {
+    const manufactureDate = item.manufactureDate
+    ? new Date(item.manufactureDate).toLocaleDateString()
+    : null;
+
   return (
     <div className="card">
       <img
